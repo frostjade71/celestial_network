@@ -21,7 +21,14 @@ A **a minecraft community landing page** designed for the Celestial Network, fea
 ## Technology Stack
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=react,ts,vite,tailwind,framer,vercel,github" alt="Technology Stack" />
+  <img src="https://skillicons.dev/icons?i=react" height="48" alt="React" />
+  <img src="https://skillicons.dev/icons?i=ts" height="48" alt="TypeScript" />
+  <img src="https://skillicons.dev/icons?i=vite" height="48" alt="Vite" />
+  <img src="https://skillicons.dev/icons?i=tailwind" height="48" alt="Tailwind CSS" />
+  <img src="public/Framer%20Icon%20(White%20on%20Black).jpg" height="48" width="48" style="border-radius: 10px; vertical-align: top;" alt="Framer Motion" />
+  <img src="https://skillicons.dev/icons?i=vercel" height="48" alt="Vercel" />
+  <img src="https://skillicons.dev/icons?i=firebase" height="48" alt="Firebase" />
+  <img src="https://skillicons.dev/icons?i=github" height="48" alt="GitHub" />
 </p>
 
 - **Frontend Core**: React 19, Vite 8, TypeScript

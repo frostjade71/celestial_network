@@ -91,7 +91,7 @@ export default function Footer() {
                   key={idx}
                   whileHover={{ y: -5, scale: 1.1, backgroundColor: 'rgba(var(--primary-rgb), 0.1)' }}
                   whileTap={{ scale: 0.9 }}
-                  href="https://discord.gg/AWdZsrjNTb" 
+                  href="https://discord.com/invite/AWdZsrjNTb" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-all cursor-pointer shadow-sm border border-outline-variant/10 hover:border-primary/30"

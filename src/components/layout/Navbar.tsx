@@ -5,18 +5,21 @@ import { Link } from 'react-scroll';
 
 const NAV_LINKS = [
   { name: 'Home', to: 'home' },
-  { name: 'Join Info', to: 'join-info' },
   { name: 'Why Join', to: 'features' },
-  { name: 'Voice Channels', to: 'voice' },
   { name: 'Members', to: 'explorers' },
+  { name: 'Appeal', to: 'appeal' },
 ];
 
-const Navbar = memo(function Navbar() {
+interface NavbarProps {
+  onStaffClick: () => void;
+}
+
+const Navbar = memo(function Navbar({ onStaffClick }: NavbarProps) {
   const { theme, toggleTheme } = useTheme();
   const [activeTab, setActiveTab] = useState('home');
 
   return (
-    <nav className="sticky top-0 w-full z-50 bg-surface/70 backdrop-blur-xl shadow-2xl shadow-primary-container/10">
+    <nav className="sticky top-0 w-full z-[200] bg-surface/70 backdrop-blur-xl shadow-2xl shadow-primary-container/10 overflow-x-hidden">
       <div className="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
@@ -51,6 +54,13 @@ const Navbar = memo(function Navbar() {
               )}
             </Link>
           ))}
+          <button
+            onClick={onStaffClick}
+            className="text-sm font-headline font-bold tracking-tight cursor-pointer py-1 px-2 text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center gap-1.5"
+          >
+            <span className="material-symbols-outlined text-[18px]">admin_panel_settings</span>
+            Staff
+          </button>
         </div>
 
         <div className="flex items-center gap-3">
@@ -67,7 +77,7 @@ const Navbar = memo(function Navbar() {
           </motion.button>
           
           <motion.a 
-            href="https://discord.gg/AWdZsrjNTb"
+            href="https://discord.com/invite/AWdZsrjNTb"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, y: -2 }}

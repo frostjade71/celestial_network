@@ -177,7 +177,7 @@ const VoiceChannels = memo(function VoiceChannels() {
                 </div>
                 
                 <motion.a
-                  href={`https://discord.com/invite/1267622655201378314`}
+                  href={`https://discord.com/invite/AWdZsrjNTb`}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
@@ -202,7 +202,7 @@ const VoiceChannels = memo(function VoiceChannels() {
           <h3 className="text-xl font-headline font-black text-on-surface mb-2 tracking-tight uppercase">Silence in the Cosmos</h3>
           <p className="text-sm text-on-surface-variant font-light mb-6 max-w-sm mx-auto">No voice hubs are currently active. Be the one to start the conversation and spark life.</p>
           <motion.a
-            href={`https://discord.com/invite/1267622655201378314`}
+            href={`https://discord.com/invite/AWdZsrjNTb`}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}

@@ -13,22 +13,41 @@ const TABS: TabItem[] = [
   { name: 'Home', to: 'home', icon: 'home' },
   { name: 'Why Join', to: 'features', icon: 'featured_play_list' },
   { name: 'Members', to: 'explorers', icon: 'group' },
-  { name: 'Discord', href: 'https://discord.gg/AWdZsrjNTb', icon: 'forum' },
+  { name: 'Appeal', to: 'appeal', icon: 'gavel' },
+  { name: 'Staff', icon: 'admin_panel_settings' },
 ];
 
-const BottomTabs = memo(function BottomTabs() {
+interface BottomTabsProps {
+  onStaffClick: () => void;
+}
+
+const BottomTabs = memo(function BottomTabs({ onStaffClick }: BottomTabsProps) {
   const [activeTab, setActiveTab] = useState('home');
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-[100] md:hidden px-4 pb-6 pointer-events-none">
+    <nav className="fixed bottom-0 left-0 right-0 z-[200] md:hidden px-4 pb-8 pointer-events-none">
       <motion.div 
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="bg-surface/80 backdrop-blur-2xl border border-primary-container/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex items-center justify-between p-1.5 h-14 max-w-sm mx-auto pointer-events-auto"
+        className="bg-surface/80 backdrop-blur-2xl border border-primary-container/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex items-center justify-between p-1.5 h-14 w-full max-w-md mx-auto pointer-events-auto"
       >
         {TABS.map((tab) => {
           const isActive = activeTab === tab.to;
-          const isDiscord = tab.name === 'Discord';
+          const isStaff = tab.name === 'Staff';
+
+          if (isStaff) {
+            return (
+              <motion.button
+                key={tab.name}
+                onClick={onStaffClick}
+                whileTap={{ scale: 0.9 }}
+                className="flex flex-col items-center justify-center flex-1 gap-0.5 transition-colors text-on-surface-variant hover:text-primary"
+              >
+                <span className="material-symbols-outlined text-[18px] leading-none">{tab.icon}</span>
+                <span className="text-[7.2px] font-bold uppercase tracking-tight line-clamp-1">{tab.name}</span>
+              </motion.button>
+            );
+          }
 
           if (tab.href) {
             return (
@@ -38,13 +57,14 @@ const BottomTabs = memo(function BottomTabs() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileTap={{ scale: 0.9 }}
-                className={`flex flex-col items-center justify-center flex-1 gap-0.5 transition-colors ${isDiscord ? 'text-[#5865F2]' : 'text-on-surface-variant'}`}
+                className="flex flex-col items-center justify-center flex-1 gap-0.5 transition-colors text-on-surface-variant hover:text-primary"
               >
-                <span className="material-symbols-outlined text-[20px] leading-none">{tab.icon}</span>
-                <span className="text-[8px] font-bold uppercase tracking-tight">{tab.name}</span>
+                <span className="material-symbols-outlined text-[18px] leading-none">{tab.icon}</span>
+                <span className="text-[7.2px] font-bold uppercase tracking-tight line-clamp-1">{tab.name}</span>
               </motion.a>
             );
           }
+
           return (
             <Link
               key={tab.name}
@@ -54,13 +74,13 @@ const BottomTabs = memo(function BottomTabs() {
               offset={-80}
               duration={500}
               onSetActive={() => setActiveTab(tab.to || '')}
-              className={`flex flex-col items-center justify-center flex-1 gap-0.5 cursor-pointer transition-colors ${isActive ? 'text-primary' : 'text-on-surface-variant'}`}
+              className={`flex flex-col items-center justify-center flex-1 gap-0.5 cursor-pointer transition-colors ${isActive ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-primary/70'}`}
             >
               <div className="flex flex-col items-center justify-center relative pb-1">
-                <span className="material-symbols-outlined text-[20px] leading-none transition-colors">
+                <span className="material-symbols-outlined text-[18px] leading-none transition-colors">
                   {tab.icon}
                 </span>
-                <span className="text-[8px] font-bold uppercase tracking-tight transition-colors">
+                <span className="text-[7.2px] font-bold uppercase tracking-tight transition-colors line-clamp-1">
                   {tab.name}
                 </span>
                 {isActive && (

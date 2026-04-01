@@ -36,7 +36,7 @@ const Hero = memo(function Hero() {
   const { theme } = useTheme();
 
   const copyInvite = () => {
-    navigator.clipboard.writeText('https://discord.gg/AWdZsrjNTb');
+    navigator.clipboard.writeText('https://discord.com/invite/AWdZsrjNTb');
     toast.success('Invite link copied to clipboard!');
   };
 
@@ -97,7 +97,7 @@ const Hero = memo(function Hero() {
 
         <motion.div variants={itemVariants} className="grid grid-cols-2 md:flex md:flex-row gap-4 justify-center items-center w-full max-w-md md:max-w-none mx-auto">
           <motion.a 
-            href="https://discord.gg/AWdZsrjNTb"
+            href="https://discord.com/invite/AWdZsrjNTb"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, y: -4, boxShadow: '0 20px 40px -10px rgba(var(--primary), 0.4)' }}
