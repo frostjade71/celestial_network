@@ -49,6 +49,19 @@ export default function Footer() {
 
         <div className="flex flex-wrap gap-16 md:gap-24">
           <motion.div variants={itemVariants} className="space-y-5">
+            <h5 className="font-bold text-on-surface text-base tracking-tight">Latest Updates</h5>
+            <ul className="space-y-3 text-[10px] uppercase tracking-wider font-bold text-on-surface-variant">
+              <li className="flex items-center gap-2 text-primary">
+                <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+                v0.2 Beta Live
+              </li>
+              <li className="opacity-60">Discord Sync 2.0</li>
+              <li className="opacity-60">Mobile Bottom Bar</li>
+              <li className="opacity-60">Theme Orchestrator</li>
+            </ul>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="space-y-5">
             <h5 className="font-bold text-on-surface text-base tracking-tight">Navigation</h5>
             <ul className="space-y-3 text-sm font-light">
               <li>
@@ -96,11 +109,16 @@ export default function Footer() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="border-t border-outline-variant/5 pt-8 pb-24 md:pb-8 flex flex-col md:flex-row items-center justify-center gap-6 relative px-8"
+        className="border-t border-outline-variant/5 pt-8 pb-24 md:pb-8 flex flex-col md:flex-row items-center justify-between gap-6 relative px-8 max-w-screen-2xl mx-auto w-full"
       >
-        <p className="text-[9px] md:text-[10px] text-on-surface-variant uppercase tracking-[0.2em] md:trackng-[0.25em] font-medium opacity-70 text-center">
-          Celestial Network ©frostjade71 {currentYear}. All cosmic rights reserved.
-        </p>
+        <div className="flex flex-col md:flex-row items-center gap-4">
+          <p className="text-[9px] md:text-[10px] text-on-surface-variant uppercase tracking-[0.2em] md:trackng-[0.25em] font-medium opacity-70 text-center">
+            Celestial Network ©frostjade71 {currentYear}. All cosmic rights reserved.
+          </p>
+          <div className="px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-[8px] font-black text-primary uppercase tracking-widest">
+            v0.2-beta
+          </div>
+        </div>
         
         <motion.a 
           href="https://github.com/frostjade71"
