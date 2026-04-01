@@ -1,4 +1,4 @@
-
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 
 const RULES = [
@@ -43,7 +43,7 @@ const itemVariants = {
   },
 };
 
-export default function Rules() {
+const Rules = memo(function Rules() {
   return (
     <motion.section 
       initial={{ opacity: 0, y: 20 }}
@@ -82,4 +82,6 @@ export default function Rules() {
       </motion.div>
     </motion.section>
   );
-}
+});
+
+export default Rules;

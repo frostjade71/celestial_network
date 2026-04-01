@@ -1,4 +1,4 @@
-
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 
 const cardVariants = {
@@ -10,7 +10,7 @@ const cardVariants = {
   },
 };
 
-export default function WhyJoin() {
+const WhyJoin = memo(function WhyJoin() {
   return (
     <section className="space-y-12 py-20" id="features">
       <motion.div 
@@ -52,8 +52,8 @@ export default function WhyJoin() {
           <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
           <div className="relative z-10 space-y-4">
             <span className="px-3 py-1 bg-primary-container text-on-primary-container text-[10px] font-bold rounded-full uppercase tracking-widest shadow-sm">Active 24/7</span>
-            <h3 className="text-3xl md:text-4xl font-headline font-black tracking-tight">Active Channels</h3>
-            <p className="text-on-surface-variant max-w-lg text-base md:text-lg leading-relaxed font-light">Our community never sleeps. From late-night gaming sessions to early-morning coffee chats, there's always someone to talk to in the void.</p>
+            <h3 className="text-3xl md:text-4xl font-headline font-black tracking-tight uppercase">Active Community</h3>
+            <p className="text-on-surface-variant max-w-lg text-base md:text-lg leading-relaxed font-light">We're active all day and night. Whether you're gaming or just chilling, there's always someone online to talk to.</p>
           </div>
         </motion.div>
 
@@ -71,17 +71,15 @@ export default function WhyJoin() {
             src="/Midnight%20New%20moon%20shield%20pattern.jpg"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent z-0"></div>
-          <motion.span 
-            initial={{ rotate: -10 }}
-            whileHover={{ rotate: 0, scale: 1.1 }}
+          <span 
             className="material-symbols-outlined text-4xl text-primary-container relative z-10" 
             style={{ fontVariationSettings: "'FILL' 1" }}
           >
             security
-          </motion.span>
+          </span>
           <div className="relative z-10">
-            <h4 className="text-xl font-headline font-bold mb-2">Safe Environment</h4>
-            <p className="text-sm text-on-surface-variant font-light">Professional staff members ensuring a toxicity-free zone for everyone.</p>
+            <h4 className="text-xl font-headline font-bold mb-2 uppercase">Safe Environment</h4>
+            <p className="text-sm text-on-surface-variant font-light leading-relaxed">A safer realm setup designed to keep the experience fun and protected.</p>
           </div>
         </motion.div>
 
@@ -99,20 +97,20 @@ export default function WhyJoin() {
             src="/event.jpg"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent z-0"></div>
-          <motion.span 
-            initial={{ scale: 0.8 }}
-            whileHover={{ scale: 1.2, rotate: 10 }}
+          <span 
             className="material-symbols-outlined text-4xl text-secondary relative z-10" 
             style={{ fontVariationSettings: "'FILL' 1" }}
           >
             event_available
-          </motion.span>
+          </span>
           <div className="relative z-10">
-            <h4 className="text-xl font-headline font-bold mb-2">Weekly Events</h4>
-            <p className="text-sm text-on-surface-variant font-light">Movie nights, game tournaments, and celestial giveaways every single week.</p>
+            <h4 className="text-xl font-headline font-bold mb-2 uppercase">Chill Community</h4>
+            <p className="text-sm text-on-surface-variant font-light leading-relaxed">A laid-back place to play, talk, and build with others at your own pace.</p>
           </div>
         </motion.div>
       </motion.div>
     </section>
   );
-}
+});
+
+export default WhyJoin;

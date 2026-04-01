@@ -5,26 +5,18 @@
 
 A **a minecraft community landing page** designed for the Celestial Network, featuring a state-of-the-art glassmorphic UI, dynamic animations, and seamless Discord integration. Built for performance, accessibility, and visual excellence.
 
-![Development Status](https://img.shields.io/badge/Status-In_Development-yellow?style=for-the-badge)
+![Production Status](https://img.shields.io/badge/Status-In_Production-green?style=for-the-badge)
 
 </div>
 
-## Features
+## Key Features
 
-### Visual Excellence
-- **Glassmorphic UI**: Elegant, translucent interfaces that adapt beautifully to both light and dark modes.
-- **Micro-Animations**: Buttery-smooth transitions and hover effects powered by Framer Motion.
-- **Responsive Layout**: A mobile-first, fluid design that scales perfectly from smartphones to ultra-wide desktops.
+- **✨ Premium UI/UX**: State-of-the-art glassmorphic design with smooth **Framer Motion** animations and full mobile responsiveness.
+- **🌐 Community Hub**: Seamless Discord integration featuring real-time player stats and active voice channel visibility.
+- **📚 Member Resources**: Everything new players need—from simple "How to Join" guides to comprehensive rules and FAQ.
+- **🛠️ Modern Dev Stack**: High-performance architecture using **React 19**, **Vite 8**, and **Tailwind CSS 4** for lightning-fast speeds.
 
-### Community & Engagement
-- **Discord Integration**: One-click join buttons and quick-action links to get members into the action instantly.
-- **Real-Time Analytics**: Built-in Vercel Analytics to track growth and visitor engagement with precision.
-- **Information Hub**: Structured sections for Rules, FAQ, Staff, and Voice Channels to provide a comprehensive landing experience.
 
-### Performance & Tooling
-- **Modern Stack**: Leverages React 19 and Vite 8 for lightning-fast development and optimized production builds.
-- **Tailwind CSS 4**: Uses the latest Tailwind features for a robust, maintainable design system.
-- **Type Safety**: Fully typed with TypeScript to ensure reliability and developer productivity.
 
 ## Technology Stack
 
@@ -39,6 +31,10 @@ A **a minecraft community landing page** designed for the Celestial Network, fea
 - **Icons**: Lucide React & Material Symbols
 - **Notifications**: Sonner
 - **Deployment**: Vercel
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on reporting bugs, suggesting features, and submitting pull requests.
 
 ## License
 

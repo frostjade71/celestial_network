@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
@@ -12,11 +12,11 @@ const faqs = [
   },
   {
     question: "What makes Celestial Network unique?",
-    answer: "We offer a premium, space-themed experience with a mature community, custom curated events, dedicated active voice hubs, and stellar aesthetics."
+    answer: "Our network features unique custom events, active 24/7 voice hubs, and a mature, dedicated player base focused on competitive yet chill gameplay."
   }
 ];
 
-export default function FAQ() {
+const FAQ = memo(function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -74,4 +74,6 @@ export default function FAQ() {
       </div>
     </section>
   );
-}
+});
+
+export default FAQ;

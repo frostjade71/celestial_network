@@ -14,9 +14,13 @@ export interface Member {
 export interface StaffMember {
   id: string;
   name: string;
-  role: 'Admin' | 'Moderator' | 'Helper';
+  role: string;
   initials: string;
   isOnline: boolean;
+  discordId: string;
+  avatarUrl?: string;
+  roleIcon?: string;
+  roleColor?: string;
 }
 
 export interface VoiceChannel {

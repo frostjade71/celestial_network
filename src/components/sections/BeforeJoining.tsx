@@ -1,4 +1,4 @@
-
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 
 const containerVariants = {
@@ -20,7 +20,7 @@ const itemVariants = {
   },
 };
 
-export default function BeforeJoining() {
+const BeforeJoining = memo(function BeforeJoining() {
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-10" id="before-joining">
       <motion.div 
@@ -100,4 +100,6 @@ export default function BeforeJoining() {
       </div>
     </section>
   );
-}
+});
+
+export default BeforeJoining;
