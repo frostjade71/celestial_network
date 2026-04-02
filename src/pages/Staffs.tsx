@@ -56,7 +56,7 @@ const Staffs: React.FC = () => {
   const handleAddStaff = async (e: React.FormEvent) => {
     e.preventDefault();
     if (password.length < 6) {
-      toast.error('Security Protocol: Access key must be at least 6 characters.');
+      toast.error('Password must be at least 6 characters.');
       return;
     }
 
@@ -83,14 +83,14 @@ const Staffs: React.FC = () => {
         createdAt: serverTimestamp()
       });
       
-      toast.success(`New administrative access granted for ${email}.`);
+      toast.success(`Admin access granted for ${email}.`);
       setEmail('');
       setPassword('');
       
       await secondaryAuth.signOut();
     } catch (error: any) {
       console.error('Staff Creation Error:', error);
-      toast.error(error.message || 'Authorization procedure failed.');
+      toast.error(error.message || 'Failed to add admin.');
     } finally {
       setIsCreating(false);
     }
@@ -101,9 +101,9 @@ const Staffs: React.FC = () => {
     if (window.confirm('Executing Deauthorization Protocol: Are you sure you want to revoke this personnel access?')) {
       try {
         await deleteDoc(doc(db, 'staff_registry', id));
-        toast.success('Personnel record purged from Registry.');
+        toast.success('Personnel record removed.');
       } catch (error: any) {
-        toast.error('Deletion protocol failed.');
+        toast.error('Failed to remove personnel.');
       }
     }
   };
@@ -115,10 +115,10 @@ const Staffs: React.FC = () => {
       await updateDoc(doc(db, 'staff_registry', editingStaff.id), {
         email: editEmail
       });
-      toast.success('Personnel credentials updated in registry.');
+      toast.success('Personnel credentials updated.');
       setEditingStaff(null);
     } catch (error: any) {
-      toast.error('Update protocol failed.');
+      toast.error('Failed to update personnel.');
     }
   };
 
@@ -128,7 +128,7 @@ const Staffs: React.FC = () => {
     setIsResetting(true);
     try {
       await sendPasswordResetEmail(auth, editingStaff.email);
-      toast.success('Security protocol: Recovery link dispatched to personnel.');
+      toast.success('Recovery email sent.');
     } catch (error: any) {
       toast.error('Failed to dispatch recovery link.');
     } finally {
@@ -168,9 +168,9 @@ const Staffs: React.FC = () => {
           <div className="flex items-center gap-4">
              <Link 
               to="/admin"
-              className="px-4 py-2 bg-primary/10 text-primary hover:bg-primary hover:text-on-primary rounded-full text-[10px] font-bold transition-all border border-primary/20 uppercase tracking-widest flex items-center gap-2"
+              className="px-2.5 py-1.5 md:px-4 md:py-2 bg-primary/10 text-primary hover:bg-primary hover:text-on-primary rounded-full text-[9px] md:text-[10px] font-bold transition-all border border-primary/20 uppercase tracking-widest flex items-center gap-1.5 md:gap-2"
             >
-              <span className="material-symbols-outlined text-[14px]">arrow_back</span>
+              <span className="material-symbols-outlined text-[12px] md:text-[14px]">arrow_back</span>
               Dashboard
             </Link>
           </div>
@@ -186,10 +186,6 @@ const Staffs: React.FC = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 border border-primary/20">
-                <span className="material-symbols-outlined text-[12px]">group_add</span>
-                Personnel Acquisition
-              </div>
               <h1 className="text-2xl md:text-5xl font-headline font-black text-on-surface tracking-tighter uppercase mb-4">
                 Add New <span className="text-primary italic">Admin</span>
               </h1>
@@ -260,12 +256,12 @@ const Staffs: React.FC = () => {
                 {isCreating ? (
                   <div className="flex items-center gap-3">
                     <div className="w-4 h-4 border-2 border-on-primary border-t-transparent rounded-full animate-spin"></div>
-                    <span>Authorizing...</span>
+                    <span>Adding...</span>
                   </div>
                 ) : (
                   <>
                     <span className="material-symbols-outlined text-base">person_add</span>
-                    Confirm Authorization
+                    Add Account
                   </>
                 )}
               </motion.button>
@@ -277,10 +273,6 @@ const Staffs: React.FC = () => {
         <section className="space-y-10">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 bg-success/10 text-success px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 border border-success/20">
-                <span className="material-symbols-outlined text-[12px]">security</span>
-                Verified Access
-              </div>
               <h2 className="text-xl md:text-3xl font-headline font-black text-on-surface tracking-tighter uppercase">
                 Staff <span className="text-primary italic">Registry</span>
               </h2>

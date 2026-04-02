@@ -53,11 +53,11 @@ export default function Footer() {
             <ul className="space-y-3 text-[10px] uppercase tracking-wider font-bold text-on-surface-variant">
               <li className="flex items-center gap-2 text-primary">
                 <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
-                v0.2 Beta Live
+                v0.5.0 Beta Live
               </li>
-              <li className="opacity-60">Discord Sync 2.0</li>
-              <li className="opacity-60">Mobile Bottom Bar</li>
-              <li className="opacity-60">Theme Orchestrator</li>
+              <li className="opacity-60">News System & Management</li>
+              <li className="opacity-60">Realm Status Tracking</li>
+              <li className="opacity-60">Admin Panel Refinement</li>
             </ul>
           </motion.div>
 
@@ -116,7 +116,7 @@ export default function Footer() {
             Celestial Network ©frostjade71 {currentYear}. All cosmic rights reserved.
           </p>
           <div className="px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-[8px] font-black text-primary uppercase tracking-widest">
-            v0.2-beta
+            v0.5.0-beta
           </div>
         </div>
         

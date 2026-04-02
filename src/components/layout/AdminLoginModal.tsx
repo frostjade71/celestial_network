@@ -23,20 +23,20 @@ const AdminLoginModal: React.FC<AdminLoginModalProps> = ({ isOpen, onClose }) =>
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const displayName = userCredential.user.email?.split('@')[0] || 'Admin';
-      toast.success(`Access Granted. Welcome, ${displayName}.`);
+      toast.success(`Login successful. Welcome, ${displayName}.`);
       onClose();
       navigate('/admin');
     } catch (error: any) {
       console.error("Login attempt failed:", error.code, error.message);
       
-      let message = 'Access Denied: Invalid Credentials';
+      let message = 'Invalid email or password.';
       
       if (error.code === 'auth/invalid-credential' || error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
         message = 'Invalid email or access key.';
       } else if (error.code === 'auth/too-many-requests') {
-        message = 'Security protocol: Too many attempts. Try again later.';
+        message = 'Too many attempts. Please try again later.';
       } else if (error.code === 'auth/user-disabled') {
-        message = 'This personnel account has been deactivated.';
+        message = 'This account has been deactivated.';
       }
       
       toast.error(message);
@@ -125,7 +125,7 @@ const AdminLoginModal: React.FC<AdminLoginModalProps> = ({ isOpen, onClose }) =>
                 ) : (
                   <>
                     <span className="material-symbols-outlined text-sm">login</span>
-                    Authorize
+                    Log in
                   </>
                 )}
               </motion.button>

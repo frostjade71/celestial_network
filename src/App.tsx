@@ -25,19 +25,26 @@ import MaintenanceMode from './components/layout/MaintenanceMode.tsx';
 import ScrollToTop from './components/layout/ScrollToTop.tsx';
 import AdminPanel from './pages/AdminPanel.tsx';
 import Staffs from './pages/Staffs.tsx';
+import RealmStatus from './pages/RealmStatus.tsx';
+import WebsiteStatus from './pages/WebsiteStatus.tsx';
+import NewsManagement from './pages/NewsManagement.tsx';
+import NewsBar from './components/layout/NewsBar.tsx';
+import NewsModal from './components/layout/NewsModal.tsx';
 import { DiscordProvider } from './context/DiscordContext.tsx';
 
 interface MainSiteProps {
   onStaffClick: () => void;
+  onSeeMoreNews: () => void;
 }
 
-function MainSite({ onStaffClick }: MainSiteProps) {
+function MainSite({ onStaffClick, onSeeMoreNews }: MainSiteProps) {
   const { status } = useStatus();
   const isOnline = status === 'online';
 
   return (
     <>
       <Navbar onStaffClick={onStaffClick} />
+      <NewsBar onSeeMore={onSeeMoreNews} />
       <BottomTabs onStaffClick={onStaffClick} />
       
       {/* Maintenance Overlay */}
@@ -70,6 +77,7 @@ function MainSite({ onStaffClick }: MainSiteProps) {
 function App() {
   const { theme } = useTheme();
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
+  const [isNewsModalOpen, setIsNewsModalOpen] = useState(false);
 
   return (
     <DiscordProvider>
@@ -80,12 +88,19 @@ function App() {
       <Routes>
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/admin/staffs" element={<Staffs />} />
-        <Route path="*" element={<MainSite onStaffClick={() => setIsAdminModalOpen(true)} />} />
+        <Route path="/admin/realm-status" element={<RealmStatus />} />
+        <Route path="/admin/website-status" element={<WebsiteStatus />} />
+        <Route path="/admin/news" element={<NewsManagement />} />
+        <Route path="*" element={<MainSite onStaffClick={() => setIsAdminModalOpen(true)} onSeeMoreNews={() => setIsNewsModalOpen(true)} />} />
       </Routes>
 
       <AdminLoginModal 
         isOpen={isAdminModalOpen} 
         onClose={() => setIsAdminModalOpen(false)} 
+      />
+      <NewsModal 
+        isOpen={isNewsModalOpen} 
+        onClose={() => setIsNewsModalOpen(false)} 
       />
       <SoonModal />
     </DiscordProvider>

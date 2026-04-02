@@ -24,22 +24,11 @@ const MaintenanceMode: React.FC<MaintenanceModeProps> = ({ status }) => {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         className="relative z-10 text-center max-w-md bg-surface-container-high/40 backdrop-blur-2xl p-8 md:p-10 rounded-[2.5rem] border border-outline-variant/20 shadow-2xl"
       >
-        <motion.div
-           animate={{
-            y: [0, -8, 0],
-            rotate: [0, 5, -5, 0]
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="mb-6 inline-block"
-        >
+        <div className="mb-6 inline-block">
           <span className="material-symbols-outlined text-primary text-5xl md:text-6xl drop-shadow-[0_0_20px_rgba(var(--primary),0.6)]">
             {isMaintenance ? 'engineering' : 'cloud_off'}
           </span>
-        </motion.div>
+        </div>
 
         <h1 className="text-2xl md:text-3xl font-headline font-black text-on-surface mb-4 tracking-tight uppercase">
           {isMaintenance ? 'Maintenance Underway' : 'Website is Offline'}

@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { useTheme } from '../../hooks/useTheme';
+import { useStatus } from '../../context/StatusContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -34,11 +35,14 @@ const badgeVariants = {
 
 const Hero = memo(function Hero() {
   const { theme } = useTheme();
+  const { realmStatus, isLoading } = useStatus();
 
   const copyInvite = () => {
     navigator.clipboard.writeText('https://discord.com/invite/AWdZsrjNTb');
     toast.success('Invite link copied to clipboard!');
   };
+
+  const isRealmOpen = realmStatus === 'open';
 
   return (
     <header className="relative min-h-screen flex items-center justify-center overflow-hidden px-6" id="home">
@@ -63,23 +67,25 @@ const Hero = memo(function Hero() {
         animate="visible"
         className="relative z-10 text-center max-w-4xl -mt-12 md:mt-0"
       >
-        <motion.div 
-          variants={badgeVariants}
-          animate={{
-            y: [0, -8, 0],
-          }}
-          transition={{
-            y: {
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }
-          }}
-          className="inline-flex items-center gap-2 bg-surface-container-high/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-primary-container/20 mb-4 cursor-default"
-        >
-          <span className="text-secondary text-xs">🌟</span>
-          <span className="text-[10px] font-bold tracking-wide text-on-surface">300+ EXPLORERS CONNECTED</span>
-        </motion.div>
+        {!isLoading && (
+          <motion.div 
+            variants={badgeVariants}
+            className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/40 md:border-black/20 mb-4 cursor-default group backdrop-blur-xl transition-all duration-500 ${
+              isRealmOpen 
+                ? 'bg-success/30 shadow-[0_0_20px_rgba(34,197,94,0.2)]' 
+                : 'bg-error/30 shadow-[0_0_20px_rgba(239,68,68,0.2)]'
+            }`}
+          >
+            <img 
+              src={isRealmOpen ? '/realm-status/netheropen.gif' : '/realm-status/barrier.png'} 
+              alt="Status Icon" 
+              className="w-4 h-4 object-contain translate-y-[1px]"
+            />
+            <span className={`text-[10px] font-black tracking-[0.2em] uppercase whitespace-nowrap drop-shadow-sm ${isRealmOpen ? 'text-success' : 'text-error'}`}>
+              {isRealmOpen ? 'Realm Open' : 'Realm Closed'}
+            </span>
+          </motion.div>
+        )}
 
         <motion.h1 variants={itemVariants} className="mb-4">
           <img 

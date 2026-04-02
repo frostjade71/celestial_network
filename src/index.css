@@ -26,6 +26,9 @@
   --color-secondary-container: var(--color-secondary-container);
   --color-on-secondary-container: var(--color-on-secondary-container);
 
+  --color-success: var(--color-success);
+  --color-error: var(--color-error);
+
   --color-on-background: var(--color-on-background);
   --color-on-surface: var(--color-on-surface);
   --color-on-surface-variant: var(--color-on-surface-variant);
@@ -76,6 +79,9 @@
   --color-secondary-container: #fef3c7;
   --color-on-secondary-container: #78350f;
 
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+
   --scrollbar-track: #f8f5f2;
 }
 
@@ -105,6 +111,9 @@
   --color-on-secondary: #472a00;
   --color-secondary-container: #ee9800;
   --color-on-secondary-container: #5b3800;
+
+  --color-success: #34d399;
+  --color-error: #f87171;
   
   --color-on-background: #ede0d7;
   --color-on-surface: #ede0d7;

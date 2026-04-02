@@ -41,3 +41,12 @@ export interface FAQItem {
   question: string;
   answer: string;
 }
+
+export interface NewsItem {
+  id: string;
+  title: string;
+  content: string;
+  isPublished: boolean;
+  createdAt: any;
+  updatedAt: any;
+}

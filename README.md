@@ -5,7 +5,7 @@
 
 A **a minecraft community landing page** designed for the Celestial Network, featuring a state-of-the-art glassmorphic UI, dynamic animations, and seamless Discord integration. Built for performance, accessibility, and visual excellence.
 
-![Production Status](https://img.shields.io/badge/Status-In_Production-green?style=for-the-badge)
+![Production Status](https://img.shields.io/badge/Status-In_Production-03AC13?style=for-the-badge)
 
 </div>
 
