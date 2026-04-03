@@ -3,18 +3,45 @@
 # <img src="public/favicon/favicon.svg" alt="Celestial Network Logo" width="120" style="border-radius: 20px;">
 # Celestial Network
 
-A **a minecraft community landing page** designed for the Celestial Network, featuring a state-of-the-art glassmorphic UI, dynamic animations, and seamless Discord integration. Built for performance, accessibility, and visual excellence.
+A Minecraft landing page and management portal for the Celestial Network, featuring real-time status tracking, integrated community tools, and a comprehensive administrative dashboard. Built for minecraft community engagements.
 
 ![Production Status](https://img.shields.io/badge/Status-In_Production-03AC13?style=for-the-badge)
+
+<br/>
+
+![Celestial Network Front Page](public/screenshots/front-page.png)
 
 </div>
 
 ## Key Features
 
-- **✨ Premium UI/UX**: State-of-the-art glassmorphic design with smooth **Framer Motion** animations and full mobile responsiveness.
-- **🌐 Community Hub**: Seamless Discord integration featuring real-time player stats and active voice channel visibility.
-- **📚 Member Resources**: Everything new players need—from simple "How to Join" guides to comprehensive rules and FAQ.
-- **🛠️ Modern Dev Stack**: High-performance architecture using **React 19**, **Vite 8**, and **Tailwind CSS 4** for lightning-fast speeds.
+- **Admin Dashboard**: Centralized management portal for controlling server status, news, and staff.
+    - Real-time status toggle & sync across platform.
+    - Secure Firebase-backed authentication.
+    - Centralized system-wide configuration.
+- **News & Announcements**: Integrated content management system for developmental updates.
+    - Direct CRUD news feed management.
+    - Automated front-page synchronization.
+    - Clean, truncated content previews.
+- **Live Realm Status**: Dynamic monitoring of server availability and community activity.
+    - Real-time server health & maintenance tracking.
+    - Live community pulse visualizations.
+    - Zero-latency Firestore data synchronization.
+- **Staff Management**: Secure personnel directory with simplified credential management.
+    - Automated personnel registry and roles.
+    - Secure email & password reset management.
+    - Simplified staff onboarding and records.
+- **Community Integration**: Deep Discord synchronization for player and voice activity.
+    - Live member counts and voice channel stats.
+    - Synced community resources and guides.
+    - Real-time community engagement highlights.
+- **Universal Accessibility**: Fully responsive architecture optimized for all device types.
+    - High-performance React 19 & Vite 8 core.
+    - Fully mobile-responsive and adaptive layouts.
+    - Modern semantic and performant architecture.
+
+
+
 
 
 
@@ -43,7 +70,7 @@ A **a minecraft community landing page** designed for the Celestial Network, fea
 
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on reporting bugs, suggesting features, and submitting pull requests.
 
-## License
+## ©️License
 
 This project is licensed under the [MIT License](LICENSE).
 
