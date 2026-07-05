@@ -1,9 +1,11 @@
 import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { useDiscord } from '../../context/DiscordContext';
+import { useStatus } from '../../context/StatusContext';
 
 const OnlineStats = memo(function OnlineStats() {
   const { data, loading } = useDiscord();
+  const { realmLink } = useStatus();
   
   const totalSync = data?.presence_count || 0;
   
@@ -93,7 +95,7 @@ const OnlineStats = memo(function OnlineStats() {
 
         <motion.div variants={itemVariants} className="mt-12">
           <motion.a
-            href="https://verify.realmbot.dev/i/celestial_smp_join"
+            href={realmLink || "https://verify.realmbot.dev/i/celestial_smp_join"}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, translateY: -2 }}

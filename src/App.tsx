@@ -26,6 +26,7 @@ import ScrollToTop from './components/layout/ScrollToTop.tsx';
 import AdminPanel from './pages/AdminPanel.tsx';
 import Staffs from './pages/Staffs.tsx';
 import RealmStatus from './pages/RealmStatus.tsx';
+import RealmLink from './pages/RealmLink.tsx';
 import WebsiteStatus from './pages/WebsiteStatus.tsx';
 import NewsManagement from './pages/NewsManagement.tsx';
 import NewsBar from './components/layout/NewsBar.tsx';
@@ -89,6 +90,7 @@ function App() {
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/admin/staffs" element={<Staffs />} />
         <Route path="/admin/realm-status" element={<RealmStatus />} />
+        <Route path="/admin/realm-link" element={<RealmLink />} />
         <Route path="/admin/website-status" element={<WebsiteStatus />} />
         <Route path="/admin/news" element={<NewsManagement />} />
         <Route path="*" element={<MainSite onStaffClick={() => setIsAdminModalOpen(true)} onSeeMoreNews={() => setIsNewsModalOpen(true)} />} />

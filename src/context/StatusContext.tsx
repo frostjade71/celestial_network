@@ -8,9 +8,11 @@ export type RealmStatus = 'open' | 'closed';
 interface StatusContextType {
   status: WebsiteStatus;
   realmStatus: RealmStatus;
+  realmLink: string;
   isLoading: boolean;
   updateStatus: (newStatus: WebsiteStatus) => Promise<void>;
   updateRealmStatus: (newStatus: RealmStatus) => Promise<void>;
+  updateRealmLink: (newLink: string) => Promise<void>;
 }
 
 const StatusContext = createContext<StatusContextType | undefined>(undefined);
@@ -18,6 +20,7 @@ const StatusContext = createContext<StatusContextType | undefined>(undefined);
 export const StatusProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [status, setStatus] = useState<WebsiteStatus>('online');
   const [realmStatus, setRealmStatus] = useState<RealmStatus>('open');
+  const [realmLink, setRealmLink] = useState<string>('https://verify.realmbot.dev/i/celestial_smp_join');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -37,15 +40,21 @@ export const StatusProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         if (data.realm) {
           setRealmStatus(data.realm.toString().toLowerCase() as RealmStatus);
         }
+        
+        if (data.realmLink) {
+          setRealmLink(data.realmLink.toString());
+        }
       } else {
         console.warn("Status document missing at 'settings/status'. Initializing default protocol...");
         setDoc(statusDocRef, { 
           current: 'online', 
           realm: 'open',
+          realmLink: 'https://verify.realmbot.dev/i/celestial_smp_join',
           lastUpdated: Date.now() 
         });
         setStatus('online');
         setRealmStatus('open');
+        setRealmLink('https://verify.realmbot.dev/i/celestial_smp_join');
       }
       setIsLoading(false);
     }, (error) => {
@@ -88,8 +97,24 @@ export const StatusProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     }
   };
 
+  const updateRealmLink = async (newLink: string) => {
+    const statusDocRef = doc(db, 'settings', 'status');
+    const updatePayload = { 
+      realmLink: newLink,
+      lastUpdated: Date.now()
+    };
+    
+    try {
+      console.log(`Setting realm link to: ${newLink}`);
+      await setDoc(statusDocRef, updatePayload, { merge: true });
+    } catch (error) {
+      console.error("Critical error updating realm link:", error);
+      throw error;
+    }
+  };
+
   return (
-    <StatusContext.Provider value={{ status, realmStatus, isLoading, updateStatus, updateRealmStatus }}>
+    <StatusContext.Provider value={{ status, realmStatus, realmLink, isLoading, updateStatus, updateRealmStatus, updateRealmLink }}>
       {children}
     </StatusContext.Provider>
   );

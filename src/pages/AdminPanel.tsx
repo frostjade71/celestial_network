@@ -236,6 +236,24 @@ const AdminPanel: React.FC = () => {
                 <span className="material-symbols-outlined text-[18px] md:text-[24px] text-on-surface-variant group-hover:text-primary transition-all group-hover:translate-x-1">arrow_forward</span>
               </motion.div>
             </Link>
+
+            <Link to="/admin/realm-link" className="block group mt-4">
+              <motion.div 
+                whileHover={{ y: -5 }}
+                className="bg-surface-container-high/20 backdrop-blur-2xl rounded-[1.5rem] md:rounded-[2.5rem] border border-outline-variant/10 p-4 md:p-8 flex items-center justify-between group-hover:border-primary/30 transition-all shadow-xl"
+              >
+                <div className="flex items-center gap-4 md:gap-6">
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-primary/10 rounded-xl md:rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all font-headline font-black">
+                    <span className="material-symbols-outlined text-lg md:text-2xl">link</span>
+                  </div>
+                  <div>
+                    <h4 className="text-sm md:text-xl font-headline font-black uppercase tracking-tighter mb-0.5 md:mb-1">Realm Link</h4>
+                    <p className="text-[9px] md:text-xs text-on-surface-variant font-light uppercase tracking-[0.15em] md:tracking-widest">Update the Join the Realm URL</p>
+                  </div>
+                </div>
+                <span className="material-symbols-outlined text-[18px] md:text-[24px] text-on-surface-variant group-hover:text-primary transition-all group-hover:translate-x-1">arrow_forward</span>
+              </motion.div>
+            </Link>
           </div>
         </section>
       </main>
